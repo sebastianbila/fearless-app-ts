@@ -22,7 +22,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "fearless"
+    },
+    "androidNavigationBar": {
+      "backgroundColor": "#000000"
+    },
+    "android": {
+      "package": "fearless"
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }
