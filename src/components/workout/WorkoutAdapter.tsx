@@ -1,13 +1,15 @@
 import React from 'react';
-import {View, StyleSheet, Text, YellowBox, ScrollView} from 'react-native'
+import {View, StyleSheet, Text, YellowBox, ScrollView, TouchableWithoutFeedback} from 'react-native'
 import Colors from "../../utils/constants/Colors";
 import WorkoutItem from "./WorkoutItem";
 import i18n from '../../utils/locales/LocalesConfig'
 import {IWorkoutItem} from "../../utils/interfaces/IWorkoutItem";
+import functions from "firebase";
 
 type Props = {
     title: string,
-    items: IWorkoutItem[]
+    items: IWorkoutItem[],
+    viewAllHandler: VoidFunction
 }
 
 const WorkoutAdapter: React.FC<Props> = props => {
@@ -18,10 +20,12 @@ const WorkoutAdapter: React.FC<Props> = props => {
     )
 
     return (
-        <View style={{width: '100%', paddingHorizontal: 30}}>
+        <View style={{width: '100%', paddingHorizontal: 30, marginBottom: 15}}>
             <View style={styles.workoutToolbar}>
                 <Text style={{fontFamily: "SF Bold", fontSize: 14}}>{props.title}</Text>
-                <Text style={{fontFamily: "SF SemiBold", textTransform: "uppercase"}}>{i18n.t('workoutBtnViewAll')}</Text>
+                <TouchableWithoutFeedback onPress={props.viewAllHandler}>
+                    <Text style={{fontFamily: "SF SemiBold", textTransform: "uppercase"}}>{i18n.t('workoutBtnViewAll')}</Text>
+                </TouchableWithoutFeedback>
             </View>
             <View style={styles.list}>
                 <ScrollView horizontal={true}

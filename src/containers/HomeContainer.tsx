@@ -3,7 +3,7 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import Colors from "../utils/constants/Colors";
 import {iosMargin} from "../utils/constants/Ios";
 import HomeScreen from "../app/home/screens/HomeScreen";
-import WorkoutScreen from "../app/home/screens/WorkoutScreen";
+import WorkoutScreen from "../app/home/screens/workout/WorkoutScreen";
 import ActiveWorkoutScreen from "../app/home/screens/ActiveWorkoutScreen";
 import ProfileScreen from "../app/home/screens/ProfileScreen";
 import GoalsScreen from "../app/home/screens/GoalsScreen";
@@ -14,7 +14,7 @@ const BottomTab = createMaterialBottomTabNavigator();
 const HomeContainer: React.FC<PropsWithChildren<any>> = (props) => {
     return (
         <BottomTab.Navigator
-            style={{paddingTop: iosMargin, backgroundColor: Colors.background}}
+            style={{backgroundColor: Colors.background}}
             initialRouteName="workout"
             activeColor={Colors.white}
             inactiveColor={Colors.gray}

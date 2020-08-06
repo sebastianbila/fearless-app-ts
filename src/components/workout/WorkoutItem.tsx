@@ -1,12 +1,16 @@
 import React from 'react';
 import {View, StyleSheet, ImageBackground, Text} from 'react-native'
 import Colors from "../../utils/constants/Colors";
-import WorkoutLevel from "./WorkoutLevel";
+import WorkoutLevelShape from "./WorkoutLevelShape";
 import {IWorkoutItem} from "../../utils/interfaces/IWorkoutItem";
 
-const WorkoutItem: React.FC<IWorkoutItem> = props => {
+type IProps = {
+    view?: 'short' | 'detail'
+}
+const WorkoutItem: React.FC<IWorkoutItem & IProps> = props => {
+
     return (
-        <View style={styles.item}>
+        <View style={props.view === 'detail' ? styles.itemFull : styles.itemShort}>
             <ImageBackground
                 imageStyle={{borderRadius: 10}}
                 style={styles.image}
@@ -19,7 +23,7 @@ const WorkoutItem: React.FC<IWorkoutItem> = props => {
                         <Text style={styles.title}>{props.title}</Text>
                     </View>
                     <View style={styles.rightSide}>
-                        <WorkoutLevel text={props.level}/>
+                        <WorkoutLevelShape text={props.level}/>
                     </View>
                 </View>
             </ImageBackground>
@@ -37,12 +41,20 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.3)',
         borderRadius: 10
     },
-    item: {
+    itemShort: {
         width: 300,
         height: 125,
         backgroundColor: Colors.lightGray,
         borderRadius: 10,
-        marginRight: 10
+        marginRight: 10,
+        marginBottom: 10
+    },
+    itemFull: {
+        width: '90%',
+        height: '17%',
+        backgroundColor: Colors.lightGray,
+        borderRadius: 10,
+        marginBottom: 10
     },
     itemContent: {
         position: 'absolute',

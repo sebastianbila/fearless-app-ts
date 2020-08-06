@@ -15,8 +15,6 @@ export const Toolbar: React.FC<IProps> = (props) => {
     function onBackPress() {
         if (props.nav.canGoBack()) {
             props.nav.goBack()
-        } else {
-            if (props.nav) props.nav.navigate("main")
         }
     }
 
