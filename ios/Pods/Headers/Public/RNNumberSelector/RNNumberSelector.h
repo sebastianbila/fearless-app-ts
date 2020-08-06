@@ -1,1 +1,0 @@
-../../../../../node_modules/react-native-number-selector/ios/RNNumberSelector.h

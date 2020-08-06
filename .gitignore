@@ -1,5 +1,10 @@
 node_modules
 .idea
+.expo
+.expo-shared
+src/utils/firebase
 .DS_Store
 .vscode
 package-lock.json
+yarn.lock
+yarn-error.log
